@@ -19,7 +19,7 @@ func TestClientCreateLaptop(t *testing.T) {
 	laptopServer, serverAddress := startTestLaptopServer(t, NewInMemoryLaptopStore())
 	laptopClient := newTestLaptopClient(t, serverAddress)
 
-	laptop := sample.Newlaptop()
+	laptop := sample.NewLaptop()
 	expectedId := laptop.Id
 
 	req := &pb.CreateLaptopRequest{Laptop: laptop}
@@ -89,7 +89,7 @@ func TestClientSearchLaptop(t *testing.T) {
 	expectedIds := make(map[string]bool)
 
 	for i := 0; i < 6; i++ {
-		laptop := sample.Newlaptop()
+		laptop := sample.NewLaptop()
 
 		switch i {
 		case 0:

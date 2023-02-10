@@ -13,13 +13,13 @@ import (
 func TestServerCreateLaptop(t *testing.T) {
 	t.Parallel()
 
-	laptopNoID := sample.Newlaptop()
+	laptopNoID := sample.NewLaptop()
 	laptopNoID.Id = ""
 
-	laptopInvalidId := sample.Newlaptop()
+	laptopInvalidId := sample.NewLaptop()
 	laptopInvalidId.Id = "invalid_id"
 
-	laptopDuplicateId := sample.Newlaptop()
+	laptopDuplicateId := sample.NewLaptop()
 	storeDuplicatedId := NewInMemoryLaptopStore()
 	err := storeDuplicatedId.Save(laptopDuplicateId)
 
@@ -33,7 +33,7 @@ func TestServerCreateLaptop(t *testing.T) {
 	}{
 		{
 			name:   "success_with_id",
-			laptop: sample.Newlaptop(),
+			laptop: sample.NewLaptop(),
 			store:  NewInMemoryLaptopStore(),
 			code:   codes.OK,
 		},

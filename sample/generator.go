@@ -85,7 +85,7 @@ func NewScreen() *pb.Screen {
 	}
 }
 
-func Newlaptop() *pb.Laptop {
+func NewLaptop() *pb.Laptop {
 	brand := randomLaptopBrand()
 	name := randomLaptopName(brand)
 

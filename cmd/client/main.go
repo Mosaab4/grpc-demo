@@ -15,7 +15,7 @@ import (
 )
 
 func createLaptop(laptopClient pb.LaptopServiceClient) {
-	laptop := sample.Newlaptop()
+	laptop := sample.NewLaptop()
 
 	req := &pb.CreateLaptopRequest{
 		Laptop: laptop,
