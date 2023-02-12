@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 	"pcbook/pb"
@@ -21,6 +22,8 @@ func main() {
 	ratingStore := service.NewInMemoryRatingStore()
 	laptopServer := service.NewLaptopServer(laptopStore, imageStore, ratingStore)
 	grpcServer := grpc.NewServer()
+
+	reflection.Register(grpcServer)
 
 	pb.RegisterLaptopServiceServer(grpcServer, laptopServer)
 	address := fmt.Sprintf("0.0.0.0:%d", *port)
